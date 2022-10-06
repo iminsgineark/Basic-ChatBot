@@ -1,3 +1,4 @@
+package com.JAVA_DSA;
 
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
@@ -62,5 +63,6 @@ public class ChatBot  extends JFrame {
         chatArea.append("Bot -> " + str + "\n");
     }
     public static void main(String[] args) {
+        new ChatBot();
     }
 }
