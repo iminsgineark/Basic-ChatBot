@@ -2,7 +2,7 @@
 //  As I Will Keep On Learning New APIs & GUI Of Java I Will Keep On Updating This Code
 //New Things Are On The Way
 
-package com.JAVA_DSA;
+package com.JAVA_DSA; // Please Remove This File When You Are Pasting This Code In Your Respected IDEs.
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class ChatBot  extends JFrame {
+public class ChatBot  extends JFrame {                            // ALso Keep The Class Name As ChatBot Or If You Want To Keep Create Your Bot Then Change The Class Name. 
     private final JTextArea chatArea = new JTextArea();
     private final JTextField chatBox = new JTextField();
 
@@ -22,9 +22,9 @@ public class ChatBot  extends JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        frame.setLayout(null);
-        frame.setSize(600, 600);
-        frame.setTitle("Ark's Bot");
+        frame.setLayout(null);                                                                                                         
+        frame.setSize(600, 600);                                                                                                          
+       frame.setTitle("Ark's Bot");                       // If Your Are Creating Your Own Bot Use This Line Of Code --> frame.setTitle("_____"); Add Your Own Bot Title
         frame.add(chatArea);
         frame.add(chatBox);
 // For TextArea
