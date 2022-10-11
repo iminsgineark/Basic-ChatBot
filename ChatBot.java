@@ -2,7 +2,7 @@
 //  As I Will Keep On Learning New APIs & GUI Of Java I Will Keep On Updating This Code
 //New Things Are On The Way
 
-package com.JAVA_DSA; // Please Remove This File When You Are Pasting This Code In Your Respected IDEs.
+package com.JAVA_DSA;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +11,11 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.awt.Desktop;
 
-public class ChatBot  extends JFrame {                            // ALso Keep The Class Name As ChatBot Or If You Want To Keep Create Your Bot Then Change The Class Name. 
+public class ChatBot  extends JFrame {                      // ALso Keep The Class Name As ChatBot Or If You Want To Keep Create Your Bot Then Change The Class Name. 
     private final JTextArea chatArea = new JTextArea();
     private final JTextField chatBox = new JTextField();
 
@@ -22,9 +25,9 @@ public class ChatBot  extends JFrame {                            // ALso Keep T
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        frame.setLayout(null);                                                                                                         
-        frame.setSize(600, 600);                                                                                                          
-       frame.setTitle("Ark's Bot");                       // If Your Are Creating Your Own Bot Use This Line Of Code --> frame.setTitle("_____"); Add Your Own Bot Title
+        frame.setLayout(null);
+        frame.setSize(600, 600);
+        frame.setTitle("Ark's Bot");
         frame.add(chatArea);
         frame.add(chatBox);
 // For TextArea
@@ -62,14 +65,14 @@ public class ChatBot  extends JFrame {                            // ALso Keep T
                     Bot("Great!!!Such A Beautiful Place");
                     Bot("Anything Else Would You Like To Ask?");
                 }
-                if (Gtext.contains("tell me about yourself")) {
+                if (Gtext.contains("tell me about yourself") || (Gtext.contains("about yourself")) || Gtext.contains("yourself")) {
                     Bot("Hi I Am Ark's Bot\n" +
                             "I'm Created By Utkrist Ark\n" +
                             "I Have Been Developed Using Java\n" +
                             "My UI Is Created Using JavaX Swing & I'm Able To Interact With you Using Java AWT .\n" +
                             "(I.E. Abstract Window ToolKit)");
                 }
-                if (Gtext.contains("tell me about java")) {
+                if (Gtext.contains("tell me about java")|| (Gtext.contains("java"))) {
                     Bot("Java is a popular programming language." +
                             "\n" +
                             "Java is used to develop mobile apps, web apps, desktop apps, games and much more.");
@@ -95,7 +98,7 @@ public class ChatBot  extends JFrame {                            // ALso Keep T
                             " while object-oriented programming is about creating objects that contain both data and methods.");
                     Bot("AnyThing Would You Still Like To Ask?");
                 }
-                if (Gtext.contains("yes tell me more about oops")) {
+                if (Gtext.contains("yes tell me more about oops") || (Gtext.contains("more about oops"))) {
                     try {
                         Desktop.getDesktop().browse(new URI("https://www.javatpoint.com/java-oops-concepts"));
                     } catch (IOException ex) {
@@ -109,17 +112,75 @@ public class ChatBot  extends JFrame {                            // ALso Keep T
                             "Following terms are basic terms of a data structure.");
                     Bot("AnyThing Would You Still Like To Ask?");
                 }
-                if (Gtext.contains("yes tell me more about dsa")) {
+                if (Gtext.contains("yes tell me more about dsa") || Gtext.contains("more about dsa")) {
                     try {
                         Desktop.getDesktop().browse(new URI("https://www.programiz.com/dsa#:~:text=A%20data%20structure%20is%20a,efficient%20and%20optimized%20computer%20programs."));
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    } catch (URISyntaxException ex) {
+                    } catch (IOException | URISyntaxException ex) {
                         ex.printStackTrace();
                     }
                 }
-                if (Gtext.contains("who is your favourite football player")) {
-                    Bot("My Favourite Football Players Are Iker Casillas & Cristiano Ronaldo");
+                if (Gtext.contains("open ronaldo videos") || (Gtext.contains("ronaldo videos")) || (Gtext.contains("ronaldo"))){
+                    try{
+                        Desktop.getDesktop().browse(new URI("https://www.youtube.com/results?search_query=ronaldo+skills"));
+                    }
+                    catch (URISyntaxException | IOException ex){
+                        ex.printStackTrace();
+                    }
+                }
+                if (Gtext.contains("open messi videos") || (Gtext.contains("messi videos")) || (Gtext.contains("messi"))){
+                    try {
+                        Desktop.getDesktop().browse(new URI("https://www.youtube.com/results?search_query=messi+skills"));
+                    }
+                    catch (URISyntaxException | IOException ex){
+                        ex.printStackTrace();
+                    }
+                }
+                if (Gtext.contains("open amazon.com") || (Gtext.contains("amazon"))){
+                    try{
+                        Desktop.getDesktop().browse(new URI("https://www.amazon.in/"));
+                    }
+                    catch (URISyntaxException | IOException ex){
+                        ex.printStackTrace();
+                    }
+                }
+                if (Gtext.contains("open flipkart.com") || (Gtext.contains("flipkart"))){
+                    try {
+                        Desktop.getDesktop().browse(new URI("https://www.flipkart.com/"));
+                    }
+                    catch (URISyntaxException | IOException ex){
+                        ex.printStackTrace();
+                    }
+                }
+                if (Gtext.contains("your favourite movie") || (Gtext.contains("which is your favourite movie")) || Gtext.contains("movie")){
+                    Bot("Sorry To Say But My Favourite Movie Is Currently None Cause' I'm Not Interested In  Movies\n" +
+                            "By The Way Tell Me About Your's Favourite");
+                }
+                if (Gtext.contains("my favourite movie is avatar")){
+                    Bot("WOW!!! That's Pretty Cool");
+                }
+                    if (Gtext.contains("who is your favourite football player")) {
+                        Bot("My Favourite Football Players Are Iker Casillas & Cristiano Ronaldo");
+                    }
+                if(Gtext.contains("tell me time") || (Gtext.contains("what is time now")) || Gtext.contains("time")){
+                    LocalTime time = LocalTime.now();
+                    String str = String.valueOf(time);
+                    Bot("Right Now Time Is : " + str);
+                }
+                if (Gtext.contains("tell me date today") || (Gtext.contains("what is date today")) || (Gtext.contains("date"))){
+                    LocalDate  date = LocalDate.now();
+                    String st1 = String.valueOf(date);
+                    Bot("Right Now Date Is : " + st1);
+                }
+                if (Gtext.contains("open english songs") || (Gtext.contains("english songs"))){
+                    try{
+                        String EnglishMusic = "D:\\Slowed & Reverbsongs\\English Slowed";
+
+                        Runtime run = Runtime.getRuntime();
+                        Process start = run.exec(String.valueOf(run));
+                    }
+                    catch (IOException eng){
+                        eng.printStackTrace();
+                    }
                 }
                 if (Gtext.contains("no")) {
                     Bot("Ok! Bye! See You Later.");
@@ -130,7 +191,6 @@ public class ChatBot  extends JFrame {                            // ALso Keep T
             }
         });
     }
-
     private void Bot(String str) {
         chatArea.append("Bot :- " + str + "\n");
     }
@@ -139,7 +199,3 @@ public class ChatBot  extends JFrame {                            // ALso Keep T
         new ChatBot();
     }
 }
-
-
-
-// HALA MADRID 🤍⚡
