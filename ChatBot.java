@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.awt.Desktop;
 
-public class ChatBot  extends JFrame {                      // ALso Keep The Class Name As ChatBot Or If You Want To Keep Create Your Bot Then Change The Class Name. 
+public class ChatBot  extends JFrame {                      // ALso Keep The Class Name As ChatBot Or If You Want To Keep Create Your Bot Then Change The Class Name.
     private final JTextArea chatArea = new JTextArea();
     private final JTextField chatBox = new JTextField();
 
@@ -151,6 +152,23 @@ public class ChatBot  extends JFrame {                      // ALso Keep The Cla
                         ex.printStackTrace();
                     }
                 }
+                if (Gtext.contains("open files") || (Gtext.contains("files"))){
+                    try{
+                        String path  = "\"C:\\Users\\ankur\\Downloads\\Quick Sort (1).pdf\"";
+                        File NewFile = new File(path);
+                        if (NewFile.exists()){
+                            Process start = Runtime.getRuntime().exec(" \"rundll32 url.dll,FileProtocolHandler" + path);
+                            start.waitFor();
+                        }
+                        else {
+                            System.out.println("File Doesn't Exist");
+                        }
+                    }
+                    catch (Exception error){
+                        System.out.println(error);
+                    }
+
+                }
                 if (Gtext.contains("your favourite movie") || (Gtext.contains("which is your favourite movie")) || Gtext.contains("movie")){
                     Bot("Sorry To Say But My Favourite Movie Is Currently None Cause' I'm Not Interested In  Movies\n" +
                             "By The Way Tell Me About Your's Favourite");
@@ -171,15 +189,12 @@ public class ChatBot  extends JFrame {                      // ALso Keep The Cla
                     String st1 = String.valueOf(date);
                     Bot("Right Now Date Is : " + st1);
                 }
-                if (Gtext.contains("open english songs") || (Gtext.contains("english songs"))){
-                    try{
-                        String EnglishMusic = "D:\\Slowed & Reverbsongs\\English Slowed";
-
-                        Runtime run = Runtime.getRuntime();
-                        Process start = run.exec(String.valueOf(run));
-                    }
-                    catch (IOException eng){
-                        eng.printStackTrace();
+                if (Gtext.contains("open notepad") || (Gtext.contains("notepad"))) {
+                    Runtime run = Runtime.getRuntime();
+                    try {
+                        run.exec("notepad.exe");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
                     }
                 }
                 if (Gtext.contains("no")) {
